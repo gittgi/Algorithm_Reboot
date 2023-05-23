@@ -1,7 +1,41 @@
 import copy
 
 def check():
-   pass
+    delete_list = []
+    for i in range(7):
+       for j in range(7):
+        #    숫자를 찾는다
+           if arr[i][j] != 0:
+                # x 방향 찾기
+                target = arr[i][j]
+                t = 0
+                cnt = 0
+                while 0 <= i + t < 7 and arr[i + t][j] != 0:
+                    t += 1
+                    cnt += 1
+                t = 0
+                while 0 <= i + t < 7 and arr[i + t][j] != 0:
+                    t -= 1
+                    cnt += 1
+                if target == cnt - 1:
+                    delete_list.append((i, j))
+                    continue
+
+                # y 방향 찾기
+                t = 0
+                cnt = 0
+                while 0 <= j + t < 7 and arr[i][j + t] != 0:
+                    t += 1
+                    cnt += 1
+                t = 0
+                while 0 <= j + t < 7 and arr[i][j + t] != 0:
+                    t -= 1
+                    cnt += 1
+                if target == cnt - 1:
+                    delete_list.append((i, j))
+                    continue
+
+    return delete_list
 
 def delete(delete_list):
     for x, y in delete_list:
@@ -32,6 +66,23 @@ for j in range(7):
     arr = copy.deepcopy(origin_arr)
     arr[0][j] = num
     move_down()
+
     delete_list = check()
-    print(delete_list)
+    while delete_list:
+        delete(delete_list)
+        move_down()
+        delete_list = check()
+
+    cnt = 0
+
+   
+    for l in range(7):
+        for k in range(7):
+            if arr[l][k] != 0:
+                cnt += 1
+    result.append(cnt)
+
+
+
+print(min(result))     
     
