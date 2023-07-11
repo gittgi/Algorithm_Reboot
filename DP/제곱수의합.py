@@ -7,7 +7,9 @@
 n = int(input())
 
 dp = [float("inf")] * (n+1)
-temp = []
+temp = [1]
+dp[1] = 1
+
 for i in range(2, n+1):
     
     if int(i**(1/2)) ** 2 == i:
