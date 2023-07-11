@@ -33,5 +33,5 @@ for i in range(n):
                 ans.append(dfs(i, j))
 
 print(len(ans))
-for i in ans:
+for i in sorted(ans):
     print(i) 
