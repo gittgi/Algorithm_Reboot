@@ -24,6 +24,9 @@ def bfs(n):
                 visited[i] = visited[now] + 1
                 q.append(i)
 
-bfs(n)
+if n == k:
+    print(0)
+else:
+    bfs(n)
 
 
