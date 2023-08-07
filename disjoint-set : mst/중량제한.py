@@ -41,6 +41,6 @@ for i in arr:
     d, a, b = i
     if find(a)!= find(b):
         union(a, b)
-    if find(start) == find(end): # 크루스칼 하다가 둘이 연결된다 -> 내림차순이었기 때문에, 둘을 연결하는 가장 작은 값이 현재의 d
+    if find(start) == find(end): # 크루스칼 하다가 둘이 연결된다 -> 내림차순이었기 때문에, 둘을 연결하는 가장 작은 값이 현재의 d 값
         print(d)
         quit()
