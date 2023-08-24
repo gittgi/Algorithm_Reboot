@@ -26,4 +26,4 @@ while s < e:
             s += 1
 
 
-print(ans_s, ans_e)
+print(arr[ans_s], arr[ans_e])
