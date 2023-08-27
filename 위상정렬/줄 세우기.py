@@ -14,8 +14,6 @@ for _ in range(m):
     jinip[b] += 1
 
 
-print(graph)
-print(jinip)
 
 def topology():
     q = deque()
