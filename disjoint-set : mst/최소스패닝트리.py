@@ -27,10 +27,10 @@ def union(x, y):
     y = find(y)
     if rank[x] < rank[y]:
         parent[x] = y
-        rank[y] = rank[x] + 1
+   
     elif rank[x] > rank[y]:
         parent[y] = x
-        rank[x] = rank[y] + 1
+ 
     else:
         parent[y] = x
         rank[x] += 1
