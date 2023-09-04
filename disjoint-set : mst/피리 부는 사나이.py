@@ -1,5 +1,8 @@
 import sys
 input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
+# from collections import deque
+
 
 def find(x, y):
     if (x, y) == parent[x][y]:
@@ -9,6 +12,7 @@ def find(x, y):
 
         parent[x][y] = find(parent[x][y][0], parent[x][y][1])
         return parent[x][y]
+    
 
 def union(x1, y1, x2, y2):
     x1, y1 = find(x1, y1)
@@ -38,13 +42,12 @@ def dfs(x, y):
         y += 1
 
     
-    (par_x, par_y) = find(x, y) # 다음칸이 속해있는 그룹
-    if (par_x, par_y) == find(old_x, old_y): # 만약 현재칸과 다음칸의 그룹이 같다면
-        ans.add((par_x, par_y))
-        union(x, y, old_x, old_y) # 다음칸과 지금칸의 부모를 일치 시켜준다
+
+    if find(x, y) == find(old_x, old_y): # 만약 현재칸과 다음칸의 그룹이 같다면
         return
     union(x, y, old_x, old_y) # 다음칸과 지금칸의 부모를 일치 시켜준다
     dfs(x, y) # 다음칸에서 계속
+
 
 n, m = map(int, input().split())
 
@@ -63,10 +66,11 @@ for i in range(n):
 for i in range(n):
     for j in range(m):
         if find(i, j) == (i, j):
-
             dfs(i, j)
 
-print(len(ans))
-print(parent)
+for i in range(n):
+    for j in range(m):
+        if find(i, j) == (i, j):
+            ans.add((i,j))
 
-    
+print(len(ans))
