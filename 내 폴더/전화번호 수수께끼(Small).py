@@ -30,11 +30,11 @@ def dfs(cnt, dd, number):
 
 
 for t in range(tc):
-    dd = defaultdict(int)
+    dd = defaultdict(int) # default dict default 설정
     string = input()
     length = len(string)
     for i in string:
-        dd.setdefault(i, 0)
+        # dd.setdefault(i, 0)
         dd[i] += 1
     flag = False
     dfs(0, dd, "")
