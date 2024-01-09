@@ -4,8 +4,9 @@ total = 0
 ans = float("inf")
 comb = []
 
-# 절반만 뽑기
-def recur(num_list):
+# 재귀로 조합을 찾고, 조합이 찾아지면 그 자리에서 최소값 계산
+# 따로 조합을 만들어서 메모리에 저장하고 나중에 한꺼번에 최소값을 계산하려고 하면 메모리초과..
+def recur(num_list, index):
     if len(num_list) == n//2:
         temp = 0
         temp_com = []
@@ -27,12 +28,12 @@ def recur(num_list):
         ans = min(ans, abs(temp - temp2))
         return
 
-    for i in range(n):
-        if i not in num_list:
-            recur(num_list + [i])
+    # 재귀적으로 조합을 하기 (if 와 in을 사용하니까 시간초과 남)
+    for i in range(index, n):
+        recur(num_list + [i], i + 1) 
 
     
-recur([])
+recur([], 0)
     
 
 print(ans)
