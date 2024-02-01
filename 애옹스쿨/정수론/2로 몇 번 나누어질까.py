@@ -1,14 +1,23 @@
-def f(k):
-    cnt = 0
+# 에라토스테네스의 체
+a, b = map(int, input().split())
 
-    for i in range(1, k):
-        if 2 ** i > k:
-            break
-        
-        cnt += k // 2
+def find_2(n):
+
+    cnt_2 = 0
+    for i in range(1, 10**15 + 1):
+        if 2 ** i > n:
+            return cnt_2
+
+        cnt_2 += (n // (2**i))
+
+odd = 0
+if a % 2 == 0:
+    if b % 2 == 0:
+        odd = (b - a) // 2
+    else:
+        odd = 1 + (b-a) // 2
+else:
+    odd = 1 + (b-a) // 2
     
-    return 2 ** cnt
 
-
-print(f(15))
-print(f(40))
+print(2 ** (find_2(b) - find_2(a-1)) + odd)

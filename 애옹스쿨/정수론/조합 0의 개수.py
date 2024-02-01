@@ -1,41 +1,33 @@
 n, m = map(int, input().split())
 
-# cnt_n_2 = 0
-# cnt_m_2 = 0
-# cnt_n_m_2 = 0
 
+cnt_n_2 = 0
+cnt_m_2 = 0
+cnt_n_m_2 = 0
 
-
-# for i in range(1, n+1):
-#     temp = i
-#     while temp % 2 == 0:
-#         if i <= m:
-#             cnt_m_2 += 1
-
-#         if i <= n - m:
-#             cnt_n_m_2 += 1
-
-#         cnt_n_2 += 1
-
-#         temp //= 2
-
+for i in range(1, 2000000001):
+    if 2 ** i > n:
+        break
+    cnt_n_2 += (n // (2 ** i))
+    if 2 ** i <= m:
+        cnt_m_2 += (m // (2 ** i))
+    if 2 ** i <= (n - m):
+        cnt_n_m_2 += ((n - m) // (2 ** i))
 
 cnt_n_5 = 0
 cnt_m_5 = 0
 cnt_n_m_5 = 0
 
-# 20억번은 너무 많으니 줄여야 한다.
-for i in range(1, n+1):
-    temp = i
-    while temp % 5 == 0:
-        if i <= m:
-            cnt_m_5 += 1
+for i in range(1, 2000000001):
+    if 5 ** i > n:
+        break
+    cnt_n_5 += (n // (5 ** i))
+    if 5 ** i <= m:
+        cnt_m_5 += (m // (5 ** i))
+    if 5 ** i <= (n - m):
+        cnt_n_m_5 += ((n - m) // (5 ** i))
 
-        if i <= n - m:
-            cnt_n_m_5 += 1
+cnt_2 = cnt_n_2 - cnt_m_2 - cnt_n_m_2
+cnt_5 = cnt_n_5 - cnt_m_5 - cnt_n_m_5
 
-        cnt_n_5 += 1
-
-        temp //= 5
-
-print(cnt_n_5 - (cnt_m_5 + cnt_n_m_5))
+print(min(cnt_2, cnt_5))

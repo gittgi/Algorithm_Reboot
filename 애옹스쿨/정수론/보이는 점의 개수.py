@@ -6,18 +6,6 @@ def get_gcd(a, b):
     return b
 
 
-# n = int(input())
-
-
-
-# cnt = 2 * (n+1) - 1
-# for i in range(2, n+1):
-#     for j in range(2, n+1):
-#         if get_gcd(i, j) == 1:
-#             cnt += 1
-
-# print(cnt)
-
 
         
 

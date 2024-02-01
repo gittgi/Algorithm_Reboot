@@ -4,7 +4,7 @@ input = sys.stdin.readline
 n = int(input())
 arr = input()
 E_count = [0] * len(arr)
-print(len(arr))
+
 for i in range(len(E_count)):
     if arr[i] == "E":
         E_count[i] = 1
@@ -28,4 +28,4 @@ for i in range(len(H_suffix)):
     if arr[i] == "W":
         ans += H_suffix[i]
 
-print(ans)
+print(ans % (10**9 + 7))
