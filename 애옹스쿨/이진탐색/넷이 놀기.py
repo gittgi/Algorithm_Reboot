@@ -31,9 +31,11 @@ def is_there(x, y):
         else:
 
             e = mid - 1
-    
+
+    #TODO: l 조건??? u 조건을 같이 넣어주니까 안됨..
     if l == -1:
         return False
+    
     s = l
     e = u-1
     while s <= e:

@@ -4,6 +4,7 @@ a, b, c = map(int, input().split())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 C = list(map(int, input().split()))
+B.sort()
 C.sort()
 def find_from_B(x):
     s = 0
@@ -60,4 +61,3 @@ for i in A:
 
 print(min_val)
 
-print(find_from_B(4))
