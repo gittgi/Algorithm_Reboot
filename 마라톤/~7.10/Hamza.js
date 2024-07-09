@@ -23,5 +23,5 @@ for (let i=1; i<t+1; i++) {
     }
   }
 
-  console.log(`Case ${i}: ${idx}`)
+  console.log(`Case ${i}: ${idx + 1}`)
 }
